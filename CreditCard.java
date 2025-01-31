@@ -1,18 +1,7 @@
-public class CreditCard {
-    // Instance Variables
-    private String customer;
-    private String bank;
-    private String account;
-    private int limit;
-    protected double balance;
-
+public class CreditCard extends Card {
     // Constructors
-    public CreditCard (String cust, String bk, String acc, int lim, double initialBal) {
-        customer = cust;
-        bank = bk;
-        account = acc;
-        limit = lim;
-        balance = initialBal;
+    public CreditCard (String customer, String bank, String account, int limit, double balance) {
+        super(customer, bank, account, limit, balance);
     }
 
     // Constructor for no initial balance, calls the prior constructor with 0.0 filled in for initialBal
@@ -20,30 +9,9 @@ public class CreditCard {
         this(cust, bk, acc, lim, 0.0);
     }
 
-    // Get Methods 
-    public String getCustomer() {
-        return customer;
-    }
-
-    public String getBank() {
-        return bank;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public int getLimit() {
-        return limit;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
     // Methods
     public boolean charge (double price) {
-        if (price + balance > limit) {
+        if (price + balance > getLimit()) {
             return false;
         }
         balance += price;
@@ -55,11 +23,11 @@ public class CreditCard {
     }
 
     public static void printSummary (CreditCard card) {
-        System.out.println("Customer = " + card.customer);
-        System.out.println("Bank = " + card.bank);
-        System.out.println("Account = " + card.account);
-        System.out.println("Limit = " + card.limit);
-        System.out.println("Balance = " + card.balance);
+        System.out.println("Customer = " + card.getCustomer());
+        System.out.println("Bank = " + card.getBank());
+        System.out.println("Account = " + card.getAccount());
+        System.out.println("Limit = " + card.getLimit());
+        System.out.println("Balance = " + card.getBalance());
     }
     public static void main (String[] args) {
         CreditCard[] wallet = new CreditCard[3];
