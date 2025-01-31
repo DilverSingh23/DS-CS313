@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class CSDepartment extends QueensCollege {
-    private ArrayList<Subject> subjects;
+    private static ArrayList<Subject> subjects;
 
     public CSDepartment () {
         super();
