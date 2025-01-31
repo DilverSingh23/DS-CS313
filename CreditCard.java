@@ -29,6 +29,8 @@ public class CreditCard extends Card {
         System.out.println("Limit = " + card.getLimit());
         System.out.println("Balance = " + card.getBalance());
     }
+
+    // Main Program
     public static void main (String[] args) {
         CreditCard[] wallet = new CreditCard[3];
         wallet [0] = new CreditCard("John Bowman", "California Savings", "5391 0375 9387 5309", 5000);
