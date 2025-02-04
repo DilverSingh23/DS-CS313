@@ -1,3 +1,4 @@
+package Homework1;
 public abstract class College {
     //Instance Variables
     private String college;

@@ -1,3 +1,4 @@
+package Homework1;
 public abstract class People {
     private String name;
     private String role;

@@ -1,3 +1,4 @@
+package Classwork2;
 public class ExpendableArray {
 	private int size;
 	private int capacity;

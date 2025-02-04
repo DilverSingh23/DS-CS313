@@ -1,3 +1,4 @@
+package Homework1;
 import java.util.ArrayList;
 
 public class CSDepartment extends QueensCollege {
