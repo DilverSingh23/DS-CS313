@@ -1,3 +1,4 @@
+// Leetcode | 704. Binary Search
 public class BinarySearchRecursive {
     public static int search(int[] nums, int target) {
         return searchHelper(nums, target, 0, nums.length-1);
