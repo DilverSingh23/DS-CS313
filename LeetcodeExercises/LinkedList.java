@@ -66,7 +66,6 @@ public class LinkedList {
 		}
 		else {
 			dummyHead.next = dummyHead.next.next;		
-			dummyHead.next.next = null; //* */
 		}
 	}
 	
