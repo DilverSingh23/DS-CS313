@@ -2,10 +2,10 @@ package LeetcodeExercises;
 
 public class ArrayQueue {
 	String[] queue;
-	int size;
 	final int CAPACITY = 5;
 	int front;
 	int rear;
+	int size;
 	
 	public ArrayQueue() {
 		queue = new String[CAPACITY];
@@ -22,11 +22,10 @@ public class ArrayQueue {
 	 */
 	public void enqueue(String element) {
 		if (size == CAPACITY) {
-			throw new IllegalArgumentException("The queue has reached its capacity");
+			throw new IllegalArgumentException("The queue has reached its capacity.");
 		}
 		queue[rear] = element;
-		rear = (rear + 1) % CAPACITY;
-		size++;
+		rear = (rear+1) % CAPACITY;
 	}
 	
 	/**
@@ -37,14 +36,13 @@ public class ArrayQueue {
 	 * @return E
 	 */
 	public String dequeue() {
-		if (isEmpty()){
+		if (size == 0){
 			return null;
 		}
 		String save = queue[front];
-		queue[front] = null;
-		front++;
+		queue[front++] = null;
 		size--;
-		return save;	
+		return save;
 	}
 	
 	/**

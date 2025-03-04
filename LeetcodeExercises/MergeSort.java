@@ -1,7 +1,7 @@
 package LeetcodeExercises;
 
 public class MergeSort {
-    public static int[] mergeSort(int[] arr, int left, int right){
+    public static int[] mergeSort (int[] arr, int left, int right){
         if (left == right) {
             int[] baseCase = {arr[left]};
             return baseCase;
@@ -10,41 +10,35 @@ public class MergeSort {
         int[] firstHalf = mergeSort(arr, left, mid);
         int[] secondHalf = mergeSort(arr, mid+1, right);
         return merge(firstHalf, secondHalf);
+
     }
 
-    public static int[] merge (int[] firstHalf, int[] secondHalf) {
+    public static int[] merge (int[] firstHalf, int[] secondHalf){
         int[] results = new int[firstHalf.length + secondHalf.length];
+        int firstPointer = 0;
+        int secondPointer = 0;
+        int resultsPointer = 0;
 
-        int firstPtr = 0;
-        int secondPtr = 0;
-        int resultsPtr = 0;
-
-        while (firstPtr < firstHalf.length && secondPtr < secondHalf.length) {
-            if (firstHalf[firstPtr] < secondHalf[secondPtr]) {
-                results[resultsPtr] = firstHalf[firstPtr];
-                firstPtr++;
+        while (firstPointer < firstHalf.length && secondPointer < secondHalf.length){
+            if (firstHalf[firstPointer] <= secondHalf[secondPointer]){
+                results[resultsPointer++] = firstHalf[firstPointer++];
             }
             else {
-                results[resultsPtr] = secondHalf[secondPtr];
-                secondPtr++;
+                results[resultsPointer++] = secondHalf[secondPointer++];
             }
-            resultsPtr++;
         }
 
-        while (firstPtr < firstHalf.length) {
-            results[resultsPtr] = firstHalf[firstPtr];
-            firstPtr++;
-            resultsPtr++;
+        while (firstPointer < firstHalf.length){
+            results[resultsPointer++] = firstHalf[firstPointer++];
         }
 
-        while (secondPtr < secondHalf.length) {
-            results[resultsPtr] = secondHalf[secondPtr];
-            secondPtr++;
-            resultsPtr++;
+        while (secondPointer < secondHalf.length) {
+            results[resultsPointer++] = secondHalf[secondPointer++];
         }
 
         return results;
     }
+
 
 
 	public static void main(String[] args) {

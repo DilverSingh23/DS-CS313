@@ -2,9 +2,9 @@ package LeetcodeExercises;
 
 public class ArrayStack {
 	String[] stack;
-	int size;
 	final int CAPACITY = 5;
 	int top;
+	int size;
 	
 	public ArrayStack() {
 		stack = new String[CAPACITY];
@@ -19,12 +19,10 @@ public class ArrayStack {
 	 */
 	public void push(String element) {
 		if (size == CAPACITY) {
-			throw new IllegalArgumentException("Stack is filled to capacity");
+			throw new IllegalArgumentException("The stack has reached capacity.");
 		}
-		else {
-			stack[++top] = element;
-			size++;
-		}
+		stack[++top] = element;
+		size++;
 	}
 	
 	/**
@@ -34,7 +32,7 @@ public class ArrayStack {
 	 * @return String
 	 */
 	public String pop() {
-		if (isEmpty()) {
+		if (size == 0){
 			return null;
 		}
 		String save = stack[top--];

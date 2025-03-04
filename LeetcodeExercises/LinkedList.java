@@ -67,6 +67,7 @@ public class LinkedList {
 		else {
 			dummyHead.next = dummyHead.next.next;		
 		}
+		length--;
 	}
 	
 	public void removeLast() {
