@@ -28,6 +28,7 @@ public class OpenAddressHashMap<K,V> {
             }
             bucket[i] = pair;
         }
+        size++;
     }
 
     public Pair<K,V> get(Key k) {
