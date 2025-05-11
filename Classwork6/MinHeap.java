@@ -1,4 +1,4 @@
-package day_10_heaps;
+package Classwork6;
 
 public class MinHeap {
 	int[] heapArray;
@@ -6,11 +6,14 @@ public class MinHeap {
 	int capacity;
 	
 	public MinHeap() {
-		
+		capacity = 1000;
+		heapArray = new int[capacity];
+		size = 0;
 	}
 	
 	public MinHeap(int cap) {
-		
+		capacity = cap;
+		heapArray = new int[capacity];
 	}
 	
 	/**
@@ -18,7 +21,12 @@ public class MinHeap {
 	 * @param num
 	 */
 	public void insertMinHeap(int num) {
-		
+		if(size == capacity-1) {
+			throw new IllegalStateException("Heap is full, cannot insert "+num);
+		}
+		size++;
+		heapArray[++size] = num;
+		heapifyUp(size);
 	}
 	
 	/**
@@ -27,7 +35,13 @@ public class MinHeap {
 	 * @return
 	 */
 	public int removeMinHeap() {
-		
+		if (size == 0) {
+			throw new IllegalStateException("No elements to remove from heap");
+		}
+		int save = heapArray[1];
+		heapArray[1] = heapArray[size--];
+		heapifyDown();
+		return save;
 	}
 	
 	/**
@@ -36,7 +50,11 @@ public class MinHeap {
 	 * @param index
 	 */
 	public void heapifyUp(int index) {
-		
+		int i = index;
+		while (i > 1 && heapArray[i/2] > heapArray[i] ){
+			swap(heapArray[i], heapArray[i/2]);
+			i /= 2;
+		}
 	}
 	
 	/**
@@ -45,7 +63,19 @@ public class MinHeap {
 	 * @param index
 	 */
 	public void heapifyDown() {
-		
+		int i = 1;
+		while (i*2 <= size || (i*2 + 1) <= size) {
+			if (heapArray[i] )
+			if (heapArray[i] > heapArray[i*2] || heapArray[i] > heapArray[(i*2)+1]) {
+				if (heapArray[i*2] < heapArray[(i*2)+1]) {
+					swap(heapArray[i], heapArray[i*2]);
+					i *= 2;
+				}
+				else {
+
+				}
+			}
+		}
 	}
 	
 	/**
@@ -54,7 +84,9 @@ public class MinHeap {
 	 * @param j
 	 */
 	public void swap(int i, int j) {
-		
+		int temp = i;
+		i = j;
+		j = temp;
 	}
 	
 	/**
